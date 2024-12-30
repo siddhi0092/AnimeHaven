@@ -1,0 +1,64 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="signin.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="text-center">Sign In</h2>
+            <form>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password">
+              </div>
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="rememberMe">
+                <label class="form-check-label" for="rememberMe">Remember me</label>
+              </div>
+              <button type="submit" class="btn btn-primary">Sign In</button>
+            </form>
+            <p class="text-center">Don't have an account? <a href="signup.html">Sign Up</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+    
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+    
+        // Retrieve user data from local storage
+        const storedEmail = localStorage.getItem('userEmail');
+        const storedPassword = localStorage.getItem('userPassword');
+        const storedName = localStorage.getItem('userName');
+    
+        // Check if the email and password match
+        if (email === storedEmail && password === storedPassword) {
+            // Store the user's name in local storage
+            localStorage.setItem('userName', storedName);
+            // Redirect to home page after sign in
+            window.location.href = 'home.html';
+        } else {
+            alert('Invalid email or password');
+        }
+    });
+    </script>
+</body>
+</html>

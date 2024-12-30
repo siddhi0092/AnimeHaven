@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AnimeHaven</title>
+    <link rel="stylesheet" href="home.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+
+
+<!-- navbar -->
+
+<nav class="navbar navbar-expand-lg bg-dark fixed-top">
+  <div class="container-fluid">
+      <a class="navbar-brand text-light" href="#">AnimeHaven</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                  <a class="nav-link active text-light" aria-current="page" href="home.html">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link text-light" href="wishlist.html">Wishlist</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link text-light" href="#">History</a>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      More
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Manga</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="logout.html" onclick="logout()">Logout</a></li>
+                  </ul>
+              </li>
+          </ul>
+          <!-- <div class="d-flex justify-content-center mx-auto">
+              <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-light" type="submit">Search</button>
+              </form>
+          </div> -->
+
+          <div class="d-flex justify-content-center mx-auto">
+            <form class="d-flex" role="search" id="search-form">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search-input">
+                <button class="btn btn-outline-light" type="submit">Search</button>
+            </form>
+            <div id="suggestions" class="position-absolute bg-light border" style="z-index: 1000; display: none;"></div>
+        </div>
+
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="user-nav">
+          <!-- User name will be displayed here -->
+      </ul>
+
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                  <button id="button-1">
+                      <a class="nav-link text-light" href="signin.html">Sign in</a>
+                  </button>
+              </li>
+              <li class="nav-item">
+                  <button id="button-2">
+                      <a class="nav-link text-light" href="signup.html">Sign up</a>
+                  </button>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+
+
+<!-- carousel -->
+
+      <div id="carouselExample" class="carousel slide position-relative">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="my-hero-acedemia.hero-wallpaper.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block carousel-caption-hover">
+              <h5>Watch Now</h5>
+              <button class="btn btn-primary">Start Watching</button>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="image.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block carousel-caption-hover">
+              <h5>Watch Now</h5>
+              <button class="btn btn-primary">Start Watching</button>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="mythical-dragon-beast-anime-.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block carousel-caption-hover">
+              <h5>Watch Now</h5>
+              <button class="btn btn-primary">Start Watching</button>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+
+<!-- aboutUs -->
+
+      <div class="aboutUs">
+        <h1><u>About Us</u></h1>
+        <p>AnimeHub is a dynamic, user-friendly web application dedicated to anime enthusiasts. the platform serves as a comprehensive hub for exploring, ranking, and managing anime. AnimeHub offers features like personalized wishlists, user authentication, and interactive tools, creating a space where users can connect with their favorite anime series while discovering new ones.
+        </p>
+      </div>
+
+
+<!-- cards -->
+
+  <div class="container mt-5">
+    <div class="row" id="anime-container"></div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center" id="pagination">
+            <li class="page-item"><a class="page-link" href="#" id="prev">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#" id="page-1">1</a></li>
+            <li class="page-item"><a class="page-link" href="#" id="page-2">2</a></li>
+            <li class="page-item"><a class="page-link" href="#" id="page-3">3</a></li>
+            <li class="page-item"><a class="page-link" href="#" id="next">Next</a></li>
+        </ul>
+    </nav>
+  </div>
+
+  
+<!-- Rankings of anime -->
+
+    <div class="Rankings">
+        <u><h1>Top Anime - Rankings</h1></u>
+        <ul class="anime-list" id="animeList"></ul>
+    </div> 
+
+
+<!-- footer -->
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <h5>About Us</h5>
+              <p>AnimeHub is a dynamic, user-friendly web application dedicated to anime enthusiasts. the platform serves as a comprehensive hub for exploring, ranking, and managing anime.</p>
+              <ul class="list-unstyled">
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h5>Quick Links</h5>
+              <ul class="list-unstyled">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h5>Follow Us</h5>
+              <ul class="list-unstyled">
+                <li><a href="#" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a></li>
+                <li><a href="#" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+                <li><a href="#" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2023 Your Company. All rights reserved.</p>
+        </div>
+      </footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="home.js"></script>
+
+<script>
+  // Function to update the navbar with the user's name
+  function updateNavbar() {
+      const userName = localStorage.getItem('userName');
+      const userNav = document.getElementById('user-nav');
+  
+      if (userName) {
+          userNav.innerHTML = `<li class="nav-item text-light">Hi, ${userName}</li>`;
+      } else {
+          userNav.innerHTML = `
+          <li class="nav-item text-light">Hello, User</li> `;  
+      }
+  }
+  
+  // Call the function to update the navbar on page load
+  updateNavbar();
+
+// Function to handle logout
+function logout() {
+    // Clear all user-related data from local storage
+    localStorage.removeItem('userName');
+    localStorage.removeItem('userEmail');
+    localStorage.removeItem('userPassword'); // If you stored it
+
+    // Update the navbar to reflect the logged-out state
+    updateNavbar();
+
+    // Optionally, redirect to the home page or sign-in page
+    window.location.href = 'home.html'; // Redirect to home page
+}
+
+// Call the function to update the navbar on page load
+updateNavbar();
+
+  </script>
+    
+  </body>
+</html>
+

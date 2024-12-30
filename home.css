@@ -1,0 +1,154 @@
+body {
+    background-color: rgb(58, 56, 56) !important;
+    color: white;
+}
+
+
+/* navbar */
+
+#button-1{
+    background-color: green;
+}
+
+#button-1:hover{
+    background-color: rgb(74, 207, 74);
+}
+
+#button-2{
+    background-color: green;
+}
+
+#button-2:hover{
+    background-color: rgb(74, 207, 74);
+}
+
+
+/* carousel */
+
+  .carousel {
+    padding: 5%;
+    max-width: 1700px;
+    margin: 0 auto;
+  }
+  
+  .carousel img {
+    height: 700px;
+    object-fit: cover;
+  }
+  
+  #anime-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .carousel-caption-hover {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  
+  .carousel-caption-hover h5 {
+    font-family: sans-serif;
+    font-size: 60px;
+    font-weight:900;
+    margin-bottom: 10px;
+    color: rgb(0, 0, 0);
+  }
+  
+  .carousel-caption-hover button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  
+  .carousel-item:hover .carousel-caption-hover {
+    opacity: 1;
+  }
+  
+  .carousel-caption-hover button:hover {
+    background-color:red
+  }
+
+
+/* aboutUs */
+
+.aboutUs {
+    color: whitesmoke;
+    font-size: larger;
+    text-align: justify;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+
+/* rankings */
+
+.Rankings{
+    color: whitesmoke;
+    margin: 5%;
+    text-align: justify;
+}
+
+#animeList {
+    margin-top: 20px;
+}
+
+#animeList table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#animeList th, #animeList td {
+    border: 1px solid #a2ccae;
+    padding: 10px;
+    text-align: left;
+}
+
+#animeList th {
+    background-color: #333;
+    color: #73bb85;
+}
+
+#animeList tr:nth-child(even) {
+    background-color: #418146;
+}
+
+#animeList tr:hover {
+    background-color: #3cb65b;
+}
+
+
+/* footer */
+
+.footer {
+    padding: 10%;
+    background-color: rgb(16, 41, 16);
+    color: whitesmoke;
+    font-size: larger;
+}
+
+.footer h5{
+    font-size: xx-large;
+}
+
+#suggestions {
+  max-height: 200px; /* Limit height */
+  overflow-y: auto; /* Scroll if too many suggestions */
+  width: 100%; /* Match the width of the input */
+  border-radius: 0.25rem; /* Match Bootstrap's border radius */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.suggestion-item {
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.suggestion-item:hover {
+  background-color: #f8f9fa; /* Light background on hover */
+}
+

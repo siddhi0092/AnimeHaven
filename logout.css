@@ -1,0 +1,17 @@
+body {
+    background-image: url(logout\ image.png);
+    background-repeat: no-repeat;
+    background-size: cover ;
+    background-position: center;
+    height: 100vh;
+}
+
+.goodbye {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    font-weight: 300;
+    color: azure;
+
+}

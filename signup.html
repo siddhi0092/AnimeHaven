@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="signin.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="text-center">Sign Up</h2>
+            <form>
+              <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name">
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password">
+              </div>
+              <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword">
+              </div>
+              <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+            <p class="text-center">Already have an account? <a href="signin.html">Sign In</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+    
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+    
+        // Store user data in local storage
+        localStorage.setItem('userName', name);
+        localStorage.setItem('userEmail', email);
+        localStorage.setItem('userPassword', password); // You might want to hash this in a real application
+    
+        // Redirect to home page after sign up
+        window.location.href = 'home.html';
+    });
+    </script>
+</body>
+</html>
